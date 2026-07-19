@@ -27,8 +27,17 @@ jobs:
             - name: Rodar testes
 
               run: |
-               pytest -v  --cov=models --cov=services --cov=config --cov=controllers --html=report.htm
+               mkdir -p reports
+               pytest -v  --cov=models --cov=services --cov=config --cov=controllers --html=reports/report.html --self-contained-html
                radon cc ./burguer-app/auth-service/models/user_model.py
+            
+            - name: Upload HTML Report
+              uses: actions/upload-artifact@v4
+              if: always() # Garante que o relatório seja salvo mesmo se algum teste falhar
+              with:
+                name: pytest-html-report
+                path: reports/report.html
+                retention-days: 7
 
 
             
