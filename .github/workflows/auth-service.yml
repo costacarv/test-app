@@ -27,7 +27,7 @@ jobs:
             - name: Rodar testes
 
               run: |
-               pytest -v  --cov=models --cov=services --cov=config --cov=controllers 
+               pytest -v  --cov=models --cov=services --cov=config --cov=controllers --html=report.htm
                radon cc ./burguer-app/auth-service/models/user_model.py
 
 
