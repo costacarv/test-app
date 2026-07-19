@@ -1,11 +1,12 @@
 name: Teste Auth Service
 
 on: 
+    
     push:
-        branches: [aula-6]
+      branches: [ "main" ]
     pull_request:
-        branches: [aula-6]
-
+      branches: [ "main" ]
+    
 jobs:
     test-auth-service:
         runs-on: ubuntu-latest
